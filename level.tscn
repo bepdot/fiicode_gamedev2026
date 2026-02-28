@@ -10,7 +10,7 @@ script/source = "extends Node2D
 
 var x: float = 0.0
 func _process(delta: float) -> void:
-	position += Vector2(cos(x), sin(x)) * 5
+	position += Vector2(cos(x), sin(x)) / 5
 	x += delta
 "
 

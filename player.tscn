@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cp6o0egq4smi0" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://cyj8vpwme0tbg" path="res://assets/Character.svg" id="2_onrkg"]
+[ext_resource type="Texture2D" uid="uid://hggollplrygv" path="res://sprites/ui/hpbar.png" id="3_i3pqv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hqtel"]
 animations = [{
@@ -21,6 +22,49 @@ radius = 23.0868
 properties/0/path = NodePath(".:syncPos")
 properties/0/spawn = true
 properties/0/replication_mode = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
+atlas = ExtResource("3_i3pqv")
+region = Rect2(0, 0, 46, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sweqy"]
+atlas = ExtResource("3_i3pqv")
+region = Rect2(46, 0, 46, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hs0m"]
+atlas = ExtResource("3_i3pqv")
+region = Rect2(92, 0, 46, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jxqw"]
+atlas = ExtResource("3_i3pqv")
+region = Rect2(138, 0, 46, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dw050"]
+atlas = ExtResource("3_i3pqv")
+region = Rect2(184, 0, 46, 7)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b26j0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqtel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sweqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hs0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jxqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dw050")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Player" type="CharacterBody2D" unique_id=1965770318 groups=["shooter"]]
 collision_mask = 0
@@ -46,3 +90,34 @@ metadata/_edit_use_anchors_ = true
 replication_interval = 0.025
 replication_config = SubResource("SceneReplicationConfig_onrkg")
 visibility_update_mode = 1
+
+[node name="ui" type="Node2D" parent="." unique_id=1411501715]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="ui" unique_id=297983980]
+offset_left = 492.0
+offset_top = 379.0
+offset_right = 960.0
+offset_bottom = 540.0
+color = Color(1, 1, 1, 0.32941177)
+
+[node name="ColorRect2" type="ColorRect" parent="ui" unique_id=107731399]
+offset_left = -960.0
+offset_top = -540.0
+offset_right = -492.0
+offset_bottom = -379.0
+color = Color(1, 1, 1, 0.32941177)
+
+[node name="hp" type="AnimatedSprite2D" parent="ui/ColorRect2" unique_id=1057296845]
+position = Vector2(232, 59)
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_b26j0")
+frame_progress = 0.7877085
+
+[node name="Label" type="Label" parent="ui" unique_id=1518273356]
+offset_left = -76.0
+offset_top = -539.0
+offset_right = 69.0
+offset_bottom = -484.0
+theme_override_font_sizes/font_size = 40
+text = "fps:"

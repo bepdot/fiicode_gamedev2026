@@ -1,6 +1,9 @@
-Label
 Node2D
-Sprite2D
+CanvasLayer
 Camera2D
-CharacterBody2D
+Control
+AnimatedSprite2D
 ColorRect
+Label
+Sprite2D
+CharacterBody2D
