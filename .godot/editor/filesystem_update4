@@ -1,0 +1,8 @@
+res://game.tscn
+res://assets/theme.tres
+res://root.tscn
+res://level.gd
+res://root.gd
+res://level.tscn
+res://player.tscn
+res://player.gd
