@@ -3,13 +3,12 @@ extends Camera2D
 @export var speed = 400.0
 
 var syncPos := Vector2(0.0, 0.0)
-var ownid
+var ui_adjust: Vector2 = Vector2.ZERO
 
 func _enter_tree():
 	# Doing this here instead of on ready prevents bugs.
 	set_multiplayer_authority(int(str(name)))
 
-@rpc("call_remote")
 func _initialize() -> void:
 	if is_in_group("shooter"): modulate = Color(0, 0, 0)
 	if is_in_group("assistant"): 
@@ -20,6 +19,8 @@ func _ready() -> void:
 	$"Player ID".text = name
 	GameManager.player_info[int(name)] = {"spawnpoint":syncPos, "node":self}
 	NetworkManager.player_disconnected.connect(_on_player_disconnected)
+	await get_tree().create_timer(get_physics_process_delta_time(), false, true).timeout
+	Input.action_press("ui_accept")
 
 func _physics_process(_delta: float) -> void:
 	global_position = get_tree().get_first_node_in_group("shooter").global_position
@@ -49,12 +50,13 @@ func _physics_process(_delta: float) -> void:
 
 	syncPos = global_position + offset
 	offset = lerp(offset, offset+velocity, 0.05)
+	$ui.position = offset
 
 
 @rpc("call_local")
 func _showui() -> void:
 	if is_in_group("assistant"): 
-		$ColorRect.show()
+		$ui.show()
 
 func _on_player_disconnected(pid) -> void:
 	if pid == int(name):

@@ -3,6 +3,16 @@
 [ext_resource type="Script" uid="uid://d0wk4rk6f43ec" path="res://level.gd" id="1_vonw3"]
 [ext_resource type="PackedScene" uid="uid://bbb6uhyhkrkuo" path="res://player.tscn" id="2_oi3di"]
 [ext_resource type="PackedScene" uid="uid://bikx41502wigf" path="res://camplayer.tscn" id="3_oi3di"]
+[ext_resource type="Texture2D" uid="uid://duvc1h3v4qe0f" path="res://assets/icon.svg" id="4_0b4ue"]
+
+[sub_resource type="GDScript" id="GDScript_f2txt"]
+script/source = "extends Node2D
+
+var x: float = 0.0
+func _process(delta: float) -> void:
+	position += Vector2(cos(x), sin(x)) * 5
+	x += delta
+"
 
 [node name="Level" type="Node" unique_id=86848264]
 script = ExtResource("1_vonw3")
@@ -28,3 +38,10 @@ position = Vector2(1325, 330)
 [node name="PlayerSpawner" type="MultiplayerSpawner" parent="Players" unique_id=175556843]
 _spawnable_scenes = PackedStringArray("uid://bbb6uhyhkrkuo")
 spawn_path = NodePath("..")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1619767857]
+position = Vector2(1202, 318)
+script = SubResource("GDScript_f2txt")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=773788358]
+texture = ExtResource("4_0b4ue")

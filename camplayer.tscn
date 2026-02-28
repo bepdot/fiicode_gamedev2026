@@ -45,10 +45,20 @@ replication_interval = 0.025
 replication_config = SubResource("SceneReplicationConfig_ru7w0")
 visibility_update_mode = 1
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1933074449]
+[node name="ui" type="Node2D" parent="." unique_id=65160047]
 visible = false
+
+[node name="ColorRect" type="ColorRect" parent="ui" unique_id=1933074449]
 offset_left = -965.0
 offset_top = -314.0
 offset_right = 989.0
 offset_bottom = 360.0
 color = Color(1, 1, 1, 0.10980392)
+
+[node name="Label" type="Label" parent="ui" unique_id=1150647237]
+offset_left = -76.0
+offset_top = -539.0
+offset_right = 69.0
+offset_bottom = -484.0
+theme_override_font_sizes/font_size = 40
+text = "camera"
