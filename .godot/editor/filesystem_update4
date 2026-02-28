@@ -6,3 +6,5 @@ res://root.gd
 res://level.tscn
 res://player.tscn
 res://player.gd
+res://camplayer.gd
+res://camplayer.tscn

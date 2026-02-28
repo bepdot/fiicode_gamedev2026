@@ -8,7 +8,7 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jix8l"]
 texture = ExtResource("3_28aoi")
 
-[node name="Root" type="Node" unique_id=1089382963]
+[node name="Root" type="Node" unique_id=1089382963 groups=["assistant", "shooter"]]
 script = ExtResource("1_pyidc")
 level_scene = ExtResource("2_28aoi")
 

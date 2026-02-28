@@ -22,7 +22,7 @@ properties/0/path = NodePath(".:syncPos")
 properties/0/spawn = true
 properties/0/replication_mode = 1
 
-[node name="Player" type="CharacterBody2D" unique_id=1965770318]
+[node name="Player" type="CharacterBody2D" unique_id=1965770318 groups=["shooter"]]
 collision_mask = 0
 motion_mode = 1
 wall_min_slide_angle = 0.0
@@ -46,11 +46,3 @@ metadata/_edit_use_anchors_ = true
 replication_interval = 0.025
 replication_config = SubResource("SceneReplicationConfig_onrkg")
 visibility_update_mode = 1
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1802181726]
-visible = false
-offset_left = -965.0
-offset_top = -314.0
-offset_right = 989.0
-offset_bottom = 360.0
-color = Color(1, 1, 1, 0.10980392)

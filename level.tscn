@@ -2,10 +2,12 @@
 
 [ext_resource type="Script" uid="uid://d0wk4rk6f43ec" path="res://level.gd" id="1_vonw3"]
 [ext_resource type="PackedScene" uid="uid://bbb6uhyhkrkuo" path="res://player.tscn" id="2_oi3di"]
+[ext_resource type="PackedScene" uid="uid://bikx41502wigf" path="res://camplayer.tscn" id="3_oi3di"]
 
 [node name="Level" type="Node" unique_id=86848264]
 script = ExtResource("1_vonw3")
 player_scene = ExtResource("2_oi3di")
+cam_scene = ExtResource("3_oi3di")
 
 [node name="Spawner" type="Node" parent="." unique_id=682468882]
 

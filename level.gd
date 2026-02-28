@@ -4,6 +4,7 @@ extends Node
 @onready var players: Node = $Players
 
 @export var player_scene:PackedScene
+@export var cam_scene: PackedScene
 @onready var player_spawner: MultiplayerSpawner = $Players/PlayerSpawner
 
 var is_dedicated = false
@@ -47,7 +48,9 @@ func spawn_all_players():
 	
 
 func spawn_player(data):
-	var player = player_scene.instantiate()
+	var player
+	if data[2] == "shooter": player = player_scene.instantiate()
+	if data[2] == "assistant": player = cam_scene.instantiate()
 	var pid = data[0]
 	var spawnpoint = data[1]
 	player.position = spawnpoint

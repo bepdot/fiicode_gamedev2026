@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://bikx41502wigf"]
+
+[ext_resource type="Script" uid="uid://cxjp4c4nnsloh" path="res://camplayer.gd" id="1_qy6s5"]
+[ext_resource type="Texture2D" uid="uid://cyj8vpwme0tbg" path="res://assets/Character.svg" id="2_66rlv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ev0uo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_66rlv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hhv52"]
+radius = 23.0868
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_ru7w0"]
+properties/0/path = NodePath(".:syncPos")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="camplayer" type="Camera2D" unique_id=1407472303 groups=["assistant"]]
+script = ExtResource("1_qy6s5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=786134881]
+scale = Vector2(4.90625, 1)
+sprite_frames = SubResource("SpriteFrames_ev0uo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=446330179]
+shape = SubResource("CircleShape2D_hhv52")
+
+[node name="Player ID" type="Label" parent="." unique_id=1886754]
+offset_left = -35.0
+offset_top = -89.0
+offset_right = 35.0
+offset_bottom = -66.0
+text = "Player ID"
+metadata/_edit_use_anchors_ = true
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=271734015]
+replication_interval = 0.025
+replication_config = SubResource("SceneReplicationConfig_ru7w0")
+visibility_update_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1933074449]
+visible = false
+offset_left = -965.0
+offset_top = -314.0
+offset_right = 989.0
+offset_bottom = 360.0
+color = Color(1, 1, 1, 0.10980392)
