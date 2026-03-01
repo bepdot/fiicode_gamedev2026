@@ -25,6 +25,7 @@ func _ready() -> void:
 	#await get_tree().create_timer(get_physics_process_delta_time(), false, true).timeout
 	#Input.action_press("ui_accept")
 
+@rpc("call_local")
 func _physics_process(_delta: float) -> void:
 	if not is_multiplayer_authority():
 		# Making it 30fps (save bandwidth) and lerping with local fps to hide the stutter
@@ -46,7 +47,6 @@ func _physics_process(_delta: float) -> void:
 		_showui()
 	$ui.global_position = lerp($ui.global_position, get_tree().get_first_node_in_group("assistant").global_position, 0.2)
 	
-	
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 		$AnimatedSprite2D.play()
@@ -66,3 +66,4 @@ func _on_player_disconnected(pid) -> void:
 @rpc("call_local")
 func _showui() -> void:
 	$ui.show()
+	for i in get_tree().get_nodes_in_group("camera_only"): i.hide()

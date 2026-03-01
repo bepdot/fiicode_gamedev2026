@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cxjp4c4nnsloh" path="res://camplayer.gd" id="1_qy6s5"]
 [ext_resource type="Texture2D" uid="uid://cyj8vpwme0tbg" path="res://assets/Character.svg" id="2_66rlv"]
+[ext_resource type="Texture2D" uid="uid://bn3uyy06qd06b" path="res://assets/PixelWhite.png" id="3_ev0uo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ev0uo"]
 animations = [{
@@ -32,7 +33,18 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.9000001, 0.20000002)
 metadata/_snap_enabled = true
 
+[sub_resource type="GDScript" id="GDScript_ev0uo"]
+script/source = "extends Node2D
+
+func _ready() -> void:
+	modulate.a = 0
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66rlv"]
+size = Vector2(200, 100)
+
 [node name="camplayer" type="Camera2D" unique_id=1407472303 groups=["assistant"]]
+visible = false
 script = ExtResource("1_qy6s5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=786134881]
@@ -59,24 +71,52 @@ visibility_update_mode = 1
 visible = false
 
 [node name="ColorRect" type="ColorRect" parent="ui" unique_id=1933074449]
-visible = false
 offset_left = -1230.0
 offset_top = -763.0
 offset_right = 1261.0
 offset_bottom = 733.0
 color = Color(2.3102762e-06, 0.8314021, 0.70175046, 0.10980392)
 
-[node name="Label" type="Label" parent="ui" unique_id=1150647237]
-offset_left = -76.0
-offset_top = -539.0
-offset_right = 69.0
-offset_bottom = -484.0
-theme_override_font_sizes/font_size = 40
-text = "fps:"
-
 [node name="PointLight2D" type="PointLight2D" parent="ui" unique_id=1282046216]
-position = Vector2(-54.99994, 22.999954)
+position = Vector2(-3.8146973e-06, -9.536743e-07)
 scale = Vector2(35.78125, 20.437498)
 color = Color(0, 0.6106634, 0.40376776, 1)
-energy = 0.5
+energy = 3.0
 texture = SubResource("GradientTexture2D_ev0uo")
+
+[node name="bar" type="Node2D" parent="ui" unique_id=2021165104]
+position = Vector2(0, -540)
+script = SubResource("GDScript_ev0uo")
+
+[node name="ColorRect" type="ColorRect" parent="ui/bar" unique_id=1140299338]
+offset_left = -439.0
+offset_right = 442.0
+offset_bottom = 127.0
+color = Color(1, 1, 1, 0.43137255)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="ui/bar" unique_id=1249521569]
+offset_left = -200.0
+offset_top = 31.0
+offset_right = 205.0
+offset_bottom = 71.0
+max_value = 1.0
+step = 0.01
+nine_patch_stretch = true
+texture_under = ExtResource("3_ev0uo")
+texture_progress = ExtResource("3_ev0uo")
+tint_under = Color(0.1847857, 0.18478566, 0.18478566, 1)
+
+[node name="Label" type="Label" parent="ui/bar" unique_id=1150647237]
+offset_left = -200.0
+offset_top = 71.0
+offset_right = 205.0
+offset_bottom = 126.0
+theme_override_font_sizes/font_size = 40
+text = "fps:"
+horizontal_alignment = 1
+
+[node name="hover" type="Area2D" parent="ui" unique_id=1429736004]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ui/hover" unique_id=1556511893]
+shape = SubResource("RectangleShape2D_66rlv")
+debug_color = Color(0.6273665, 0.34901023, 1, 0.41960785)

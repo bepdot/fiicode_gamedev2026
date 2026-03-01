@@ -1,5 +1,16 @@
-res://level.tscn
+res://AutoLoad Scripts/class/class_hackable.tscn
 res://sprites/world/default.tres
 res://assets/theme.tres
-res://player.tscn
+res://AutoLoad Scripts/class/class_hackable.gd
+res://AutoLoad Scripts/class/class_hacktype.tscn
+res://AutoLoad Scripts/class/class_hacktype.gd
+res://AutoLoad Scripts/AudioBank.tscn
+res://AutoLoad Scripts/class/enemytemplate.tscn
+res://AutoLoad Scripts/class/enemytemplate.gd
 res://camplayer.tscn
+res://camplayer.gd
+res://level.tscn
+res://level.gd
+res://player.tscn
+res://root.tscn
+res://player.gd

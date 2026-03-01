@@ -3,6 +3,7 @@ extends Node
 @onready var spawner: Node = $Spawner
 @onready var players: Node = $Players
 
+@export var lightOnlyMaterial: CanvasItemMaterial
 @export var player_scene:PackedScene
 @export var cam_scene: PackedScene
 @onready var player_spawner: MultiplayerSpawner = $world/Players/PlayerSpawner
@@ -24,6 +25,10 @@ func _ready() -> void:
 	player_spawner.spawn_function = spawn_player
 	if multiplayer.is_server():
 		spawn_all_players()
+	
+	$world/ground.material = lightOnlyMaterial
+	$world/enemies.material = lightOnlyMaterial
+	$CanvasModulate.show()
 
 
 func spawn_all_players():
