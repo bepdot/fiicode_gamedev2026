@@ -1,34 +1,7 @@
-[gd_scene format=3 uid="uid://pcpraorlg475"]
-
-[ext_resource type="AudioStream" uid="uid://cmcm4ccis71qe" path="res://music/soundFX/warning.ogg" id="1"]
-[ext_resource type="AudioStream" uid="uid://ckvdr0ldj8b0r" path="res://music/soundFX/Flowey_bulletspawn.wav" id="2"]
-[ext_resource type="AudioStream" uid="uid://wxbdtisbqlnt" path="res://music/soundFX/boom2.ogg" id="3"]
-[ext_resource type="AudioStream" uid="uid://cpm0qfvd25l3b" path="res://music/soundFX/powerspawn_low.ogg" id="4"]
-[ext_resource type="AudioStream" uid="uid://cgnxm0mlis3dj" path="res://music/soundFX/sworkspark_eyeflash.wav" id="5"]
-[ext_resource type="AudioStream" uid="uid://d3i1tupx0vgs5" path="res://music/soundFX/SHOT1.wav" id="6"]
-[ext_resource type="AudioStream" uid="uid://d2v215iaef1kf" path="res://music/soundFX/SHOT2.wav" id="7"]
+[gd_scene format=3 uid="uid://cppbo7h8o34ex"]
 
 [sub_resource type="GDScript" id="GDScript_atmev"]
 script/source = "extends Node
-
-# this fucking sucks
-
-func _warn(): 
-	$Warn.play()
-
-func _pelletSpawn(): 
-	$FloweyPelletSummon.play()
-
-func _explode():
-	$Explode.play()
-
-func _sparkSpawn():
-	$SparkSpawn.play()
-
-func _flash():
-	$Flash.play()
-
-# audio bank 2 dlc
 
 func _create_sound(path, volume: float = -4.0, pitch: float = 1.0, startTime: float = 0.0, free: bool = true):
 	var audio = AudioStreamPlayer.new()
@@ -41,9 +14,6 @@ func _create_sound(path, volume: float = -4.0, pitch: float = 1.0, startTime: fl
 	
 	if free: _free_audio(audio)
 	return audio
-
-func _arrayer() -> void:
-	pass
 
 func _create_sound_from_array(pathArray, volume: float = -4.0, pitch: float = 1.0, startTime: float = 0.0, free: bool = true):
 	var audio = AudioStreamPlayer.new()
@@ -99,10 +69,6 @@ func _transitionSongs(to, withTiming: bool = true):
 	song = n
 	song.set_bus(\"Music\")
 
-
-# copied from MusicGlobal in order not to use two different nodes
-
-
 func _play_music(path, isObject: bool = false, timestamp: float = 0.0):
 	var tw = create_tween().set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
 	tw.tween_property(song, \"volume_db\", 0.0, 2.0).from(0.0)
@@ -128,38 +94,5 @@ func _stop_music():
 
 [node name="AudioBank" type="Node" unique_id=943699374]
 script = SubResource("GDScript_atmev")
-
-[node name="Warn" type="AudioStreamPlayer" parent="." unique_id=1637449294]
-stream = ExtResource("1")
-volume_db = -6.0
-bus = &"Effects"
-
-[node name="Explode" type="AudioStreamPlayer" parent="." unique_id=1214686149]
-stream = ExtResource("3")
-volume_db = -10.0
-bus = &"Effects"
-
-[node name="FloweyPelletSummon" type="AudioStreamPlayer" parent="." unique_id=61854981]
-stream = ExtResource("2")
-volume_db = -6.0
-bus = &"Effects"
-
-[node name="SparkSpawn" type="AudioStreamPlayer" parent="." unique_id=2058782226]
-stream = ExtResource("4")
-volume_db = -6.0
-bus = &"Effects"
-
-[node name="Flash" type="AudioStreamPlayer" parent="." unique_id=2034680192]
-stream = ExtResource("5")
-volume_db = -6.0
-bus = &"Effects"
-
-[node name="Slash1" type="AudioStreamPlayer" parent="." unique_id=241050460]
-stream = ExtResource("6")
-bus = &"Effects"
-
-[node name="Slash2" type="AudioStreamPlayer" parent="." unique_id=1070239641]
-stream = ExtResource("7")
-bus = &"Effects"
 
 [node name="song1" type="AudioStreamPlayer" parent="." unique_id=1081739361]

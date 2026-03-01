@@ -32,13 +32,11 @@ func _ready() -> void:
 	Input.action_press("ui_accept")
 
 func _physics_process(_delta: float) -> void:
-	global_position = get_tree().get_first_node_in_group("shooter").global_position
+	global_position = get_tree().get_first_node_in_group("shooter").syncPos
 	if not is_multiplayer_authority():
 		# Making it 30fps (save bandwidth) and lerping with local fps to hide the stutter
 		position = lerp(position, syncPos, 0.5)
 		return
-	
-	$ui/Label.text = str(is_multiplayer_authority())
 	if trauma:
 		trauma = max(trauma - decay * _delta, 0)
 		shake()
@@ -55,8 +53,7 @@ func _physics_process(_delta: float) -> void:
 	
 	if Input.is_action_just_released("ui_accept"):
 		_showui()
-	if Input.is_key_pressed(KEY_Z):
-		add_trauma(1)
+	if Input.is_key_pressed(KEY_Z): add_trauma(0.1)
 	
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed * _delta

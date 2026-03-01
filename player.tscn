@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cp6o0egq4smi0" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://cyj8vpwme0tbg" path="res://assets/Character.svg" id="2_onrkg"]
+[ext_resource type="Texture2D" uid="uid://bn3uyy06qd06b" path="res://assets/PixelWhite.png" id="3_hqtel"]
 [ext_resource type="Texture2D" uid="uid://hggollplrygv" path="res://sprites/ui/hpbar.png" id="3_i3pqv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hqtel"]
@@ -22,6 +23,9 @@ radius = 23.0868
 properties/0/path = NodePath(".:syncPos")
 properties/0/spawn = true
 properties/0/replication_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hqtel"]
+light_mode = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
 atlas = ExtResource("3_i3pqv")
@@ -75,6 +79,12 @@ script = ExtResource("1_onrkg")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=325992056]
 sprite_frames = SubResource("SpriteFrames_hqtel")
 
+[node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D" unique_id=10381892]
+position = Vector2(14.000008, -25.500008)
+scale = Vector2(416, 283)
+energy = 0.0
+texture = ExtResource("3_hqtel")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1016136774]
 shape = SubResource("CircleShape2D_onrkg")
 
@@ -93,8 +103,11 @@ visibility_update_mode = 1
 
 [node name="ui" type="Node2D" parent="." unique_id=1411501715]
 visible = false
+z_index = 1
+material = SubResource("CanvasItemMaterial_hqtel")
 
 [node name="ColorRect" type="ColorRect" parent="ui" unique_id=297983980]
+use_parent_material = true
 offset_left = 492.0
 offset_top = 379.0
 offset_right = 960.0
@@ -102,6 +115,7 @@ offset_bottom = 540.0
 color = Color(1, 1, 1, 0.32941177)
 
 [node name="ColorRect2" type="ColorRect" parent="ui" unique_id=107731399]
+use_parent_material = true
 offset_left = -960.0
 offset_top = -540.0
 offset_right = -492.0
@@ -109,12 +123,14 @@ offset_bottom = -379.0
 color = Color(1, 1, 1, 0.32941177)
 
 [node name="hp" type="AnimatedSprite2D" parent="ui/ColorRect2" unique_id=1057296845]
+use_parent_material = true
 position = Vector2(232, 59)
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_b26j0")
 frame_progress = 0.7877085
 
 [node name="Label" type="Label" parent="ui" unique_id=1518273356]
+use_parent_material = true
 offset_left = -76.0
 offset_top = -539.0
 offset_right = 69.0

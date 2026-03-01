@@ -1,10 +1,5 @@
-res://game.tscn
-res://assets/theme.tres
-res://root.tscn
-res://level.gd
-res://root.gd
 res://level.tscn
+res://sprites/world/default.tres
+res://assets/theme.tres
 res://player.tscn
-res://player.gd
-res://camplayer.gd
 res://camplayer.tscn

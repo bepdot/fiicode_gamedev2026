@@ -22,6 +22,16 @@ properties/0/path = NodePath(".:syncPos")
 properties/0/spawn = true
 properties/0/replication_mode = 1
 
+[sub_resource type="Gradient" id="Gradient_66rlv"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ev0uo"]
+gradient = SubResource("Gradient_66rlv")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.9000001, 0.20000002)
+metadata/_snap_enabled = true
+
 [node name="camplayer" type="Camera2D" unique_id=1407472303 groups=["assistant"]]
 script = ExtResource("1_qy6s5")
 
@@ -49,11 +59,12 @@ visibility_update_mode = 1
 visible = false
 
 [node name="ColorRect" type="ColorRect" parent="ui" unique_id=1933074449]
-offset_left = -965.0
-offset_top = -314.0
-offset_right = 989.0
-offset_bottom = 360.0
-color = Color(1, 1, 1, 0.10980392)
+visible = false
+offset_left = -1230.0
+offset_top = -763.0
+offset_right = 1261.0
+offset_bottom = 733.0
+color = Color(2.3102762e-06, 0.8314021, 0.70175046, 0.10980392)
 
 [node name="Label" type="Label" parent="ui" unique_id=1150647237]
 offset_left = -76.0
@@ -62,3 +73,10 @@ offset_right = 69.0
 offset_bottom = -484.0
 theme_override_font_sizes/font_size = 40
 text = "fps:"
+
+[node name="PointLight2D" type="PointLight2D" parent="ui" unique_id=1282046216]
+position = Vector2(-54.99994, 22.999954)
+scale = Vector2(35.78125, 20.437498)
+color = Color(0, 0.6106634, 0.40376776, 1)
+energy = 0.5
+texture = SubResource("GradientTexture2D_ev0uo")

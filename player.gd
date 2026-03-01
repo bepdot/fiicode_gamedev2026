@@ -46,12 +46,13 @@ func _physics_process(_delta: float) -> void:
 		_showui()
 	$ui.global_position = lerp($ui.global_position, get_tree().get_first_node_in_group("assistant").global_position, 0.2)
 	
+	
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 		$AnimatedSprite2D.play()
 	else:
 		$AnimatedSprite2D.stop()
-
+	
 	syncPos = global_position
 	move_and_slide()
 

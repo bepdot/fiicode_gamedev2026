@@ -1,9 +1,13 @@
+ColorRect
+CanvasModulate
+PointLight2D
+TileMapLayer
 Node2D
-CanvasLayer
+Node
+Sprite2D
 Camera2D
+CanvasLayer
 Control
 AnimatedSprite2D
-ColorRect
 Label
-Sprite2D
 CharacterBody2D

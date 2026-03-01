@@ -5,7 +5,7 @@ extends Node
 
 @export var player_scene:PackedScene
 @export var cam_scene: PackedScene
-@onready var player_spawner: MultiplayerSpawner = $Players/PlayerSpawner
+@onready var player_spawner: MultiplayerSpawner = $world/Players/PlayerSpawner
 
 var is_dedicated = false
 
