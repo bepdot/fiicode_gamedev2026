@@ -11,7 +11,7 @@ func _ready() -> void:
 
 func _set_cooldown(time) -> void:
 	canBeHacked = false
-	$visuals/Sprite2D/ColorRect.color = Color(0, 1, 0, 0)
+	find_child("Overlay").color = Color(0, 1, 0, 0)
 	await get_tree().create_timer(time, false, true).timeout
 	canBeHacked = true
-	$visuals/Sprite2D/ColorRect.color = Color(0, 1, 0, 1)
+	find_child("Overlay").color = Color(0, 1, 0, 1)
