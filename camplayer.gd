@@ -14,6 +14,11 @@ var targettedObject: hackableObject
 var targettedObject_option: int = 0
 var currentLoadProgress: float = 0.0
 var canExecuteCommand: bool = false
+var executionLayer: int = 0 # 0 = can start command | 1 = input code
+
+var keyArr = ["Up", "Down", "Left", "Right"]
+var code: Array[String]
+var currentCode: Array[String]
 
 var trauma = 0.0  # Current shake strength.
 var trauma_power = 2  # Trauma exponent. Use [2, 3].
@@ -44,7 +49,7 @@ func _physics_process(_delta: float) -> void:
 	global_position = get_tree().get_first_node_in_group("shooter").syncPos
 	if not is_multiplayer_authority():
 		# Making it 30fps (save bandwidth) and lerping with local fps to hide the stutter
-		position = lerp(position, syncPos, 0.5)
+		#position = lerp(position, syncPos, 0.1)
 		return
 	if trauma:
 		trauma = max(trauma - decay * _delta, 0)
@@ -59,13 +64,13 @@ func _physics_process(_delta: float) -> void:
 		_show_loading_ui(false)
 	
 	var velocity = Vector2.ZERO # The player's movement vector.
-	if Input.is_action_pressed("right_1"):
+	if Input.is_action_pressed("right_2"):
 		velocity.x += 1
-	if Input.is_action_pressed("left_1"):
+	if Input.is_action_pressed("left_2"):
 		velocity.x -= 1
-	if Input.is_action_pressed("down_1"):
+	if Input.is_action_pressed("down_2"):
 		velocity.y += 1
-	if Input.is_action_pressed("up_1"):
+	if Input.is_action_pressed("up_2"):
 		velocity.y -= 1
 	
 	if Input.is_action_just_released("ui_accept"):
@@ -96,11 +101,42 @@ func _input(event: InputEvent) -> void:
 		if targettedObject_option > targettedObject.hackArray.size()-1: targettedObject_option = 0
 		if targettedObject_option < 0: targettedObject_option = targettedObject.hackArray.size()-1
 		
+		if executionLayer == 1:
+			if Input.is_action_just_pressed("down_1") or Input.is_action_just_pressed("left_1") or Input.is_action_just_pressed("right_1") or Input.is_action_just_pressed("up_1"):
+				currentCode.append(event.as_text())
+				_match_input_code()
+		
 		if targettedObject.canBeHacked:
 			if Input.is_action_just_pressed("ui_accept"):
-				print("executing ..")
-				targettedObject.hackArray[targettedObject_option].call(targettedObject.hackArray[targettedObject_option].callable)
+				if targettedObject.hackArray[targettedObject_option].codeLength == 0: _match_input_code(true)
+				match executionLayer:
+					0:
+						print("executing ..")
+						_randomize_input_code(targettedObject.hackArray[targettedObject_option].codeLength)
+						executionLayer = 1
+						#targettedObject.hackArray[targettedObject_option].call(targettedObject.hackArray[targettedObject_option].callable)
+		
 		else: print("cannot be hacked right now")
+
+func _randomize_input_code(length) -> void:
+	print(length)
+	code.clear()
+	for i in length:
+		var k = randi_range(0, 3)
+		code.append(keyArr[k])
+	print(code)
+
+func _match_input_code(skip: bool = false) -> void:
+	if !skip:
+		for i in currentCode.size()-1:
+			if code[i] != currentCode[i]:
+				currentCode.clear()
+				print("failed, reset")
+				return
+		if currentCode.size() != code.size(): return
+	print("success!")
+	await get_tree().create_timer(0.5, false, true).timeout
+	targettedObject.hackArray[targettedObject_option].call(targettedObject.hackArray[targettedObject_option].callable)
 
 @rpc("call_local")
 func _showui() -> void:

@@ -3,6 +3,7 @@ extends Node2D
 
 @export var type: String = "Type"
 @export var cost: float = 1
+@export var codeLength: int = 4
 @export var callable: String = "_default"
 
 func _debug() -> void:

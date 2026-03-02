@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1772481045
+::res://::1772488638
 camplayer.gd::GDScript::6406726864217005775::1772471833::0::1::::<>Camera2D<><>0<>0<><>::
 camplayer.tscn::PackedScene::2970024902318905585::1772478636::0::1::::<><><>0<>0<><>::uid://cxjp4c4nnsloh::::res://camplayer.gd<>uid://cyj8vpwme0tbg::::res://assets/Character.svg<>uid://bn3uyy06qd06b::::res://assets/PixelWhite.png
 game.gd::GDScript::8960059320331683218::1772306126::0::1::::<>Node<><>0<>0<><>::
@@ -43,7 +43,7 @@ objecttemplate.gd::GDScript::8501973023162386610::1772463593::0::1::::objectTemp
 objecttemplate.tscn::PackedScene::6146563311482745315::1772477879::0::1::::<><><>0<>0<><>::uid://dteoivdbsade5::::res://AutoLoad Scripts/class/objecttemplate.gd<>uid://duvc1h3v4qe0f::::res://assets/icon.svg<>uid://bud2cuy8vvjs1::::res://AutoLoad Scripts/class/class_hacktype.gd
 ::res://levels/::1772305217
 ::res://sprites/::1772360132
-::res://sprites/characters/::1772481132
+::res://sprites/characters/::1772481134
 lad.png::CompressedTexture2D::8009997627462937405::1772481132::1772481134::1::::<><><>0<>0<>25cf6115194fc1c3df8d56c4a4de0492<>res://.godot/imported/lad.png-6534081abaf1acfe8b912839afcc8463.ctex::
 shotgun.png::CompressedTexture2D::6924798175686809413::1772470463::1772470465::1::::<><><>0<>0<>3a91e22fc1888c1c000b39cc710349f3<>res://.godot/imported/shotgun.png-48d28b18dd7f547902345fd3e1a2acd0.ctex::
 shotgun_light.png::CompressedTexture2D::3589030722628533261::1772481123::1772481134::1::::<><><>0<>0<>70bd2aa7f183ad438af16a3ef2c09206<>res://.godot/imported/shotgun_light.png-60e13c0502d5db2951c98a73c1b08da3.ctex::
@@ -51,8 +51,8 @@ shotgun_light.png::CompressedTexture2D::3589030722628533261::1772481123::1772481
 landmine_blow.png::CompressedTexture2D::7996992348271736683::1772478434::1772478490::1::::<><><>0<>0<>2c114b70348c481ac30e741705e16acd<>res://.godot/imported/landmine_blow.png-dd02dae502712f056d715462b7e8b3d4.ctex::
 ::res://sprites/ui/::1772313715
 hpbar.png::CompressedTexture2D::504098070508480025::1772313706::1772313715::1::::<><><>0<>0<>62dab5dbc1d1e21b7cdea3252f658b16<>res://.godot/imported/hpbar.png-44f129c6d765f05af36f41e4c2dac999.ctex::
-::res://sprites/world/::1772475971
+::res://sprites/world/::1772481551
 default.tres::TileSet::2917718689424602111::1772475971::0::1::::<><><>0<>0<><>::uid://dj4vpc0w44g2y::::res://sprites/world/neo_zero_tileset_02.png<>uid://8lvtvgeuiuwx::::res://sprites/world/neo_zero_props_02_free.png<>uid://d0qvtenvyx4k8::::res://sprites/world/neo_zero_buildings_02.png
 neo_zero_buildings_02.png::CompressedTexture2D::8948322404190369793::1772302500::1772360142::1::::<><><>0<>0<>a5282d1c9bd58842c2a36739ca5954b4<>res://.godot/imported/neo_zero_buildings_02.png-80a4af44eb4feb4d46a011873e0f6e74.ctex::
 neo_zero_props_02_free.png::CompressedTexture2D::2340250094750001235::1772302500::1772360142::1::::<><><>0<>0<>23cf5a6606bfd914004f4299e51901be<>res://.godot/imported/neo_zero_props_02_free.png-c5c163e9b721c4c13cab875eb22d9782.ctex::
-neo_zero_tileset_02.png::CompressedTexture2D::7852130587152288766::1772302500::1772360142::1::::<><><>0<>0<>7d41e16f8dec084e71bd0f0c86ea77c6<>res://.godot/imported/neo_zero_tileset_02.png-32a546707926a66c89488d27e6a6f411.ctex::
+neo_zero_tileset_02.png::CompressedTexture2D::7852130587152288766::1772481551::1772488639::1::::<><><>0<>0<>7d41e16f8dec084e71bd0f0c86ea77c6<>res://.godot/imported/neo_zero_tileset_02.png-32a546707926a66c89488d27e6a6f411.ctex::

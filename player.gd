@@ -50,13 +50,13 @@ func _physics_process(_delta: float) -> void:
 	
 	$ui/Label.text = str(is_multiplayer_authority())
 	velocity = Vector2.ZERO # The player's movement vector.
-	if Input.is_action_pressed("right_1"):
+	if Input.is_action_pressed("right_2"):
 		velocity.x += 1
-	if Input.is_action_pressed("left_1"):
+	if Input.is_action_pressed("left_2"):
 		velocity.x -= 1
-	if Input.is_action_pressed("down_1"):
+	if Input.is_action_pressed("down_2"):
 		velocity.y += 1
-	if Input.is_action_pressed("up_1"):
+	if Input.is_action_pressed("up_2"):
 		velocity.y -= 1
 	
 	if Input.is_action_just_pressed("ui_accept"):

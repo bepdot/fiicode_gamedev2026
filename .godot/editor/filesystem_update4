@@ -1,15 +1,9 @@
-res://AutoLoad Scripts/class/gun_template.tscn
+res://AutoLoad Scripts/class/objecttemplate.tscn
 res://sprites/world/default.tres
 res://assets/theme.tres
+res://camplayer.gd
+res://AutoLoad Scripts/class/class_hacktype.gd
+res://camplayer.tscn
 res://player.tscn
-res://level.tscn
 res://player.gd
 res://root.tscn
-res://AutoLoad Scripts/class/class_weapon.gd
-res://camplayer.tscn
-res://camplayer.gd
-res://level.gd
-res://AutoLoad Scripts/class/bullet_template.tscn
-res://AutoLoad Scripts/class/objecttemplate.tscn
-res://AutoLoad Scripts/class/class_hacktype.gd
-res://assets/objects/landmine.tscn
