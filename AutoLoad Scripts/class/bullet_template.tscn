@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bbld8v66ihdxl"]
+
+[ext_resource type="Script" uid="uid://whmxekr8eahn" path="res://AutoLoad Scripts/class/class_bullet.gd" id="1_2j13j"]
+[ext_resource type="Texture2D" uid="uid://bn3uyy06qd06b" path="res://assets/PixelWhite.png" id="2_fbys1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5a4d1"]
+size = Vector2(3, 3)
+
+[node name="bullet_template" type="Node2D" unique_id=797759441]
+script = ExtResource("1_2j13j")
+metadata/_custom_type_script = "uid://whmxekr8eahn"
+
+[node name="default" type="Node2D" parent="." unique_id=493882994]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="default" unique_id=308049867]
+position = Vector2(7.1525574e-07, 2.3841858e-07)
+scale = Vector2(36, 12)
+texture = ExtResource("2_fbys1")
+
+[node name="Area2D" type="Area2D" parent="default" unique_id=506049578]
+scale = Vector2(12, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="default/Area2D" unique_id=1524573318]
+shape = SubResource("RectangleShape2D_5a4d1")
+
+[node name="missile" type="Node2D" parent="." unique_id=462488292]
+visible = false
+
+[node name="piercing" type="Node2D" parent="." unique_id=599280704]
+visible = false
