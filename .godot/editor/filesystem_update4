@@ -1,5 +1,6 @@
-res://level.tscn
+res://player.gd
+res://root.tscn
 res://sprites/world/default.tres
 res://assets/theme.tres
-res://AutoLoad Scripts/class/objecttemplate.tscn
-res://AutoLoad Scripts/class/objecttemplate.gd
+res://player.tscn
+res://global.gd

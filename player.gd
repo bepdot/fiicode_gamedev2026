@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-@export var speed = 400.0
-
 var syncPos := Vector2(0.0, 0.0)
 var ownid
 
@@ -24,6 +22,14 @@ func _ready() -> void:
 	NetworkManager.player_disconnected.connect(_on_player_disconnected)
 	#await get_tree().create_timer(get_physics_process_delta_time(), false, true).timeout
 	#Input.action_press("ui_accept")
+	
+	# verificare arme
+	print("Verificam armele")
+	for nume_arma in Global.arme :
+		if Global.arme[nume_arma] == true:
+			print(nume_arma + ": este in inventar")
+		else:
+			print(nume_arma + ": nu este in inventar")
 
 @rpc("call_local")
 func _physics_process(_delta: float) -> void:
@@ -47,8 +53,12 @@ func _physics_process(_delta: float) -> void:
 		_showui()
 	$ui.global_position = lerp($ui.global_position, get_tree().get_first_node_in_group("assistant").global_position, 0.2)
 	
+	var current_speed = Global.speed
+	if Input.is_key_pressed(KEY_SHIFT):
+		current_speed = Global.run_speed
+	
 	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
+		velocity = velocity.normalized() * current_speed
 		$AnimatedSprite2D.play()
 	else:
 		$AnimatedSprite2D.stop()
