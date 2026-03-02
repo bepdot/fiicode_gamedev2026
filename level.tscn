@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bbb6uhyhkrkuo" path="res://player.tscn" id="2_oi3di"]
 [ext_resource type="PackedScene" uid="uid://bikx41502wigf" path="res://camplayer.tscn" id="3_oi3di"]
 [ext_resource type="TileSet" uid="uid://bhtmnvapyfve2" path="res://sprites/world/default.tres" id="4_0b4ue"]
-[ext_resource type="PackedScene" uid="uid://ctto88w3psdkd" path="res://AutoLoad Scripts/class/enemytemplate.tscn" id="5_f2txt"]
+[ext_resource type="PackedScene" uid="uid://ctto88w3psdkd" path="res://AutoLoad Scripts/class/objecttemplate.tscn" id="5_f2txt"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1ainy"]
 light_mode = 2

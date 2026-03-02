@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://ctto88w3psdkd"]
 
-[ext_resource type="Script" uid="uid://dteoivdbsade5" path="res://AutoLoad Scripts/class/enemytemplate.gd" id="1_ppbgj"]
-[ext_resource type="Texture2D" uid="uid://duvc1h3v4qe0f" path="res://assets/icon.svg" id="2_ckjge"]
-[ext_resource type="Script" uid="uid://bud2cuy8vvjs1" path="res://AutoLoad Scripts/class/class_hacktype.gd" id="2_ppbgj"]
+[ext_resource type="Script" uid="uid://dteoivdbsade5" path="res://AutoLoad Scripts/class/objecttemplate.gd" id="1_sypmk"]
+[ext_resource type="Texture2D" uid="uid://duvc1h3v4qe0f" path="res://assets/icon.svg" id="2_4i55d"]
+[ext_resource type="Script" uid="uid://bud2cuy8vvjs1" path="res://AutoLoad Scripts/class/class_hacktype.gd" id="3_e87nc"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ppbgj"]
 
@@ -12,7 +12,7 @@ radius = 60.207973
 [node name="object_template" type="Area2D" unique_id=454747435 node_paths=PackedStringArray("hackOptions")]
 material = SubResource("CanvasItemMaterial_ppbgj")
 use_parent_material = true
-script = ExtResource("1_ppbgj")
+script = ExtResource("1_sypmk")
 duration = 1.0
 hackOptions = [NodePath("hack_types/hack_blind")]
 
@@ -26,7 +26,7 @@ use_parent_material = true
 [node name="Sprite2D" type="Sprite2D" parent="visuals" unique_id=1833076965]
 clip_children = 2
 use_parent_material = true
-texture = ExtResource("2_ckjge")
+texture = ExtResource("2_4i55d")
 
 [node name="ColorRect" type="ColorRect" parent="visuals/Sprite2D" unique_id=1439662204 groups=["camera_only"]]
 offset_left = -81.0
@@ -38,13 +38,13 @@ color = Color(0, 0.6313726, 0.44705883, 0.4627451)
 [node name="hack_types" type="Node2D" parent="." unique_id=1073054414]
 
 [node name="hack_blind" type="Node2D" parent="hack_types" unique_id=1338836319]
-script = ExtResource("2_ppbgj")
+script = ExtResource("3_e87nc")
 type = "debug"
 callable = "_debug"
 metadata/_custom_type_script = "uid://bud2cuy8vvjs1"
 
 [node name="hack_disarm" type="Node2D" parent="hack_types" unique_id=1074974005]
-script = ExtResource("2_ppbgj")
+script = ExtResource("3_e87nc")
 type = "target.blind"
 callable = "_blind"
 metadata/_custom_type_script = "uid://bud2cuy8vvjs1"

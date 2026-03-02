@@ -1,4 +1,5 @@
 extends hackableObject
+class_name objectTemplate
 
 @export var duration: float
 @onready var hackArray: Array
