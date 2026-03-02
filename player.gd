@@ -3,6 +3,7 @@ extends CharacterBody2D
 var syncPos := Vector2(0.0, 0.0)
 var ownid
 
+
 func _enter_tree():
 	# Doing this here instead of on ready prevents bugs.
 	set_multiplayer_authority(int(str(name)))
@@ -26,7 +27,7 @@ func _ready() -> void:
 	# verificare arme
 	print("Verificam armele")
 	for nume_arma in Global.arme :
-		if Global.arme[nume_arma] == true:
+		if Global.arme[nume_arma]["unlocked"] == true:
 			print(nume_arma + ": este in inventar")
 		else:
 			print(nume_arma + ": nu este in inventar")
@@ -65,7 +66,21 @@ func _physics_process(_delta: float) -> void:
 	
 	syncPos = global_position
 	move_and_slide()
-
+	
+	
+	if Input.is_action_just_pressed("weapon_1"):
+		Global.current_weapon = "pistol"
+		print("switched to pistol")
+	if Input.is_action_just_pressed("weapon_2"):
+		Global.current_weapon = "shotgun"
+		print("switched to shotgun")
+	if Input.is_action_just_pressed("weapon_3"):
+		Global.current_weapon = "ar"
+		print("switched to ar")
+	if Input.is_action_just_pressed("weapon_4"):
+		Global.current_weapon = "sniper"
+		print("switched to sniper")
+	
 
 func _on_player_disconnected(pid) -> void:
 	if pid == int(name):
