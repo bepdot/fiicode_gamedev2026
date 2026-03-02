@@ -47,6 +47,7 @@ size = Vector2(200, 100)
 script = ExtResource("1_qy6s5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=786134881]
+visible = false
 scale = Vector2(4.90625, 1)
 sprite_frames = SubResource("SpriteFrames_ev0uo")
 
@@ -54,6 +55,7 @@ sprite_frames = SubResource("SpriteFrames_ev0uo")
 shape = SubResource("CircleShape2D_hhv52")
 
 [node name="Player ID" type="Label" parent="." unique_id=1886754]
+visible = false
 offset_left = -35.0
 offset_top = -89.0
 offset_right = 35.0

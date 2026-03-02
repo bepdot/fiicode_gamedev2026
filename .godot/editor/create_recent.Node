@@ -1,3 +1,5 @@
+PointLight2D
+LightOccluder2D
 MultiplayerSynchronizer
 Sprite2D
 Node2D
@@ -10,6 +12,3 @@ objectTemplate
 hackData
 ColorRect
 Timer
-TextureProgressBar
-hackableObject
-CanvasModulate

@@ -101,10 +101,11 @@ position = Vector2(-0.5, -18.5)
 texture = SubResource("AtlasTexture_n7ghd")
 
 [node name="PointLight2D" type="PointLight2D" parent="char" unique_id=10381892]
-position = Vector2(9.536743e-07, -1.9073486e-06)
+position = Vector2(9.536743e-07, -9.4)
 scale = Vector2(8, 8)
+shadow_enabled = true
 texture = SubResource("GradientTexture2D_hqtel")
-texture_scale = 0.5
+texture_scale = 0.25
 
 [node name="gunTemplate" parent="char" unique_id=1602873314 instance=ExtResource("4_hqtel")]
 position = Vector2(-2.9999998, -5.5999994)
