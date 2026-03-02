@@ -19,6 +19,19 @@ animations = [{
 
 [node name="gunTemplate" type="Node2D" unique_id=1602873314]
 script = SubResource("GDScript_mmje8")
+type = null
+sprite = null
+ammoType = null
+currentAmmoInMag = null
+ammoAmountUsed = null
+maxAmmoInMag = null
+ammoLeft = null
+projectileAmount = null
+projectileSpread = null
+fireDelay = null
+reloadTime = null
+automatic = null
+playerBound = null
 
 [node name="texture" type="AnimatedSprite2D" parent="." unique_id=598404557]
 position = Vector2(54, -13.5)
