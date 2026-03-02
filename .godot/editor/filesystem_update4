@@ -1,5 +1,4 @@
-res://level.tscn
+res://AutoLoad Scripts/class/objecttemplate.tscn
 res://sprites/world/default.tres
 res://assets/theme.tres
-res://AutoLoad Scripts/class/objecttemplate.tscn
 res://AutoLoad Scripts/class/objecttemplate.gd

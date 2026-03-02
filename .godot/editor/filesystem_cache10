@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1772454034
+::res://::1772462010
 camplayer.gd::GDScript::6406726864217005775::1772386158::0::1::::<>Camera2D<><>0<>0<><>::
 camplayer.tscn::PackedScene::2970024902318905585::1772386186::0::1::::<><><>0<>0<><>::uid://cxjp4c4nnsloh::::res://camplayer.gd<>uid://cyj8vpwme0tbg::::res://assets/Character.svg<>uid://bn3uyy06qd06b::::res://assets/PixelWhite.png
 game.gd::GDScript::8960059320331683218::1772306126::0::1::::<>Node<><>0<>0<><>::
@@ -29,11 +29,11 @@ mc_bells.mp3::AudioStreamMP3::9054697585807786168::1771276019::1772312403::1::::
 AudioBank.tscn::PackedScene::5856727099455066931::1772366241::0::1::::<><><>0<>0<><>::
 GameManager.gd::GDScript::5656450262492018124::1772302010::0::1::::<>Node<><>0<>0<><>::
 NetworkManager.gd::GDScript::7080481530796447946::1772303036::0::1::::<>Node<><>0<>0<><>::
-::res://AutoLoad Scripts/class/::1772454034
+::res://AutoLoad Scripts/class/::1772460024
 class_hackable.gd::GDScript::6458143083813728377::1772372125::0::1::::hackableObject<>Area2D<><>0<>0<><>::
 class_hacktype.gd::GDScript::3798034709179009722::1772385774::0::1::::hackData<>Node2D<><>0<>0<><>::
-enemytemplate.gd::GDScript::8501973023162386610::1772386231::0::1::::<>hackableObject<><>0<>0<><>::
-objecttemplate.tscn::PackedScene::6146563311482745315::1772454051::0::1::::<><><>0<>0<><>::uid://dteoivdbsade5::::res://AutoLoad Scripts/class/enemytemplate.gd<>uid://duvc1h3v4qe0f::::res://assets/icon.svg<>uid://bud2cuy8vvjs1::::res://AutoLoad Scripts/class/class_hacktype.gd
+objecttemplate.gd::GDScript::8501973023162386610::1772460024::0::1::::objectTemplate<>hackableObject<><>0<>0<><>::
+objecttemplate.tscn::PackedScene::6146563311482745315::1772460024::0::1::::<><><>0<>0<><>::uid://dteoivdbsade5::::res://AutoLoad Scripts/class/objecttemplate.gd<>uid://duvc1h3v4qe0f::::res://assets/icon.svg<>uid://bud2cuy8vvjs1::::res://AutoLoad Scripts/class/class_hacktype.gd
 ::res://levels/::1772305217
 ::res://sprites/::1772360132
 ::res://sprites/characters/::1772312266
