@@ -1,5 +1,4 @@
-res://AutoLoad Scripts/class/objecttemplate.tscn
-res://sprites/world/default.tres
-res://assets/theme.tres
 res://AutoLoad Scripts/class/class_weapon.gd
 res://AutoLoad Scripts/class/gun_template.tscn
+res://sprites/world/default.tres
+res://assets/theme.tres

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cp6o0egq4smi0" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://cyj8vpwme0tbg" path="res://assets/Character.svg" id="2_onrkg"]
 [ext_resource type="Texture2D" uid="uid://hggollplrygv" path="res://sprites/ui/hpbar.png" id="3_i3pqv"]
+[ext_resource type="PackedScene" uid="uid://sasb7uqkgwr1" path="res://AutoLoad Scripts/class/gun_template.tscn" id="4_hqtel"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hqtel"]
 animations = [{
@@ -84,8 +85,6 @@ collision_mask = 0
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_onrkg")
-speed = null
-run_speed = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=325992056]
 sprite_frames = SubResource("SpriteFrames_hqtel")
@@ -147,3 +146,5 @@ offset_right = 69.0
 offset_bottom = -484.0
 theme_override_font_sizes/font_size = 40
 text = "fps:"
+
+[node name="gunTemplate" parent="." unique_id=1602873314 instance=ExtResource("4_hqtel")]

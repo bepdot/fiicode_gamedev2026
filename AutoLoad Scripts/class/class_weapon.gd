@@ -16,13 +16,29 @@ class_name weapon
 @export var playerBound: bool = true
 var canShoot: bool = true
 
+var is_reloading: bool = false
+@onready var muzzle = $MuzzleName
+
 func _spawn(currentAmmo, remainingAmmo) -> void: # should be called whenever a weapon is initialized/instanced
 	find_child("texture").animation = sprite # animation for shooting and stuff
 	currentAmmoInMag = currentAmmo # gets these from player object
 	ammoLeft = remainingAmmo
+	print("Arma " + type + " initializata: " + str(currentAmmoInMag) + "/" + str(ammoLeft))
 
 func _physics_process(delta: float) -> void:
-	if currentAmmoInMag > ammoAmountUsed and ammoLeft != 0:
+	print(" I AM HERE")
+	look_at(get_global_mouse_position())
+	print(global_rotation)
+	if global_rotation_degrees > 90 or global_rotation_degrees < -90:
+		scale.y = -1
+	else:
+		scale.y = 1
+	
+	if Input.is_action_just_pressed("reload") and not is_reloading:
+		if currentAmmoInMag < maxAmmoInMag and ammoLeft > 0:
+			_reload()
+	
+	if currentAmmoInMag >= ammoAmountUsed and not is_reloading:
 		match automatic:
 			true:
 				if Input.is_action_pressed("shoot") and canShoot:
@@ -32,12 +48,20 @@ func _physics_process(delta: float) -> void:
 					_shoot()
 	else:
 		if Input.is_action_just_pressed("reload") and currentAmmoInMag != maxAmmoInMag:
-			#_reload()
-			# if playerBound, change reserve_ammo of global.arme[type]["reserve_ammo"]
-			# else, simply max out ammo without anything else (enemy weapons)
+			if Input.is_action_just_pressed("shoot"): 
+				_reload()
 			pass
 
 func _shoot() -> int:
+	canShoot = false
+	currentAmmoInMag -= 1
+	
+	if playerBound:
+		Global.arme[type]["ammo"] = currentAmmoInMag
+	
+	#for i in range(projectileAmount):
+		# creeaza bullet, unghi, adaugare in scena root
+	
 	_shoot_delay()
 	currentAmmoInMag -= ammoAmountUsed
 	return currentAmmoInMag
@@ -45,4 +69,32 @@ func _shoot() -> int:
 func _shoot_delay() -> void:
 	canShoot = false
 	await get_tree().create_timer(fireDelay, false, true).timeout
+	canShoot = true
+
+func _reload() -> void:
+	print("Reloading...")
+	is_reloading = true
+	canShoot = false
+
+	await get_tree().create_timer(reloadTime).timeout
+	
+	var ammo_needed = maxAmmoInMag - currentAmmoInMag
+	var ammo_to_load = 0
+	
+	if playerBound:
+		var reserve = Global.arme[type]["reserve_ammo"]
+		ammo_to_load = min(ammo_needed, reserve)
+		Global.arme[type]["reserve_ammo"] -= ammo_to_load
+		ammoLeft = Global.arme[type]["reserve_ammo"]
+	#else: for enemy
+	#	ammo_to_load = ammo_needed 
+	
+	currentAmmoInMag += ammo_to_load
+	
+	if playerBound:
+		Global.arme[type]["ammo"] = currentAmmoInMag
+	
+	print("Reload complet. Ammo: ", currentAmmoInMag, "/", ammoLeft)
+	
+	is_reloading = false
 	canShoot = true
