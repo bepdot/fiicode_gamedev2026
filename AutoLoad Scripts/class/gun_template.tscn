@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://sasb7uqkgwr1"]
 
 [ext_resource type="Texture2D" uid="uid://c5wooc32vwlyj" path="res://sprites/characters/shotgun.png" id="1_67koe"]
+[ext_resource type="Texture2D" uid="uid://bres2uiuy5n8h" path="res://sprites/characters/shotgun_light.png" id="2_136fi"]
 
 [sub_resource type="GDScript" id="GDScript_mmje8"]
 script/source = "extends weapon
@@ -22,12 +23,6 @@ properties/0/path = NodePath(".:syncRot")
 properties/0/spawn = true
 properties/0/replication_mode = 1
 
-[sub_resource type="Gradient" id="Gradient_67koe"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_136fi"]
-gradient = SubResource("Gradient_67koe")
-
 [node name="gunTemplate" type="Node2D" unique_id=1602873314]
 script = SubResource("GDScript_mmje8")
 
@@ -44,8 +39,9 @@ scale = Vector2(6, 6)
 replication_config = SubResource("SceneReplicationConfig_67koe")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=489423553]
-position = Vector2(145, -30)
-scale = Vector2(5.84375, 0.1875)
+position = Vector2(8, -18)
+scale = Vector2(6, 6)
+energy = 2.35
 shadow_enabled = true
-texture = SubResource("GradientTexture2D_136fi")
-offset = Vector2(32, 0)
+texture = ExtResource("2_136fi")
+offset = Vector2(49.333336, -1)

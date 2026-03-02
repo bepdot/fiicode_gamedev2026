@@ -10,3 +10,6 @@ res://camplayer.tscn
 res://camplayer.gd
 res://level.gd
 res://AutoLoad Scripts/class/bullet_template.tscn
+res://AutoLoad Scripts/class/objecttemplate.tscn
+res://AutoLoad Scripts/class/class_hacktype.gd
+res://assets/objects/landmine.tscn

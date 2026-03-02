@@ -41,6 +41,7 @@ assistant=""
 shooter=""
 hackable=""
 camera_only=""
+camera=""
 
 [input]
 

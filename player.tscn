@@ -101,20 +101,24 @@ position = Vector2(-0.5, -18.5)
 texture = SubResource("AtlasTexture_n7ghd")
 
 [node name="PointLight2D" type="PointLight2D" parent="char" unique_id=10381892]
+visible = false
 position = Vector2(9.536743e-07, -9.4)
 scale = Vector2(8, 8)
+color = Color(0.85079575, 0.5786054, 0.624024, 1)
+energy = 0.2
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_hqtel")
 texture_scale = 0.25
 
 [node name="gunTemplate" parent="char" unique_id=1602873314 instance=ExtResource("4_hqtel")]
-position = Vector2(-2.9999998, -5.5999994)
+position = Vector2(-6.3999996, -5.5999994)
 scale = Vector2(0.19999999, 0.19999999)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1016136774]
 shape = SubResource("CircleShape2D_onrkg")
 
 [node name="Player ID" type="Label" parent="." unique_id=1392765717]
+visible = false
 offset_left = -35.0
 offset_top = -89.0
 offset_right = 35.0

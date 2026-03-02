@@ -24,4 +24,12 @@ func _blind_rpc() -> void:
 	var tw = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 	tw.tween_property($"../..", "scale", $"../..".scale, 1).from(Vector2($"../..".scale.x / 2, $"../..".scale.y * 2))
 	$"../.."._set_cooldown(3.0)
-	
+
+func _disarm_trap() -> void: _disarm_trap_rpc.rpc()
+
+@rpc("any_peer", "call_local")
+func _disarm_trap_rpc() -> void:
+	print("trap disarmed")
+	$"../..".monitoring = false
+	$"../..".modulate = Color(0.5, 0.5, 0.5)
+	$"../.."._set_cooldown(999999.0)
