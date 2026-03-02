@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://sasb7uqkgwr1"]
+
+[ext_resource type="Texture2D" uid="uid://duvc1h3v4qe0f" path="res://assets/icon.svg" id="1_67koe"]
+
+[sub_resource type="GDScript" id="GDScript_mmje8"]
+script/source = "extends weapon
+"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_136fi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_67koe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="gunTemplate" type="Node2D" unique_id=1602873314]
+script = SubResource("GDScript_mmje8")
+
+[node name="texture" type="AnimatedSprite2D" parent="." unique_id=598404557]
+position = Vector2(54, -13.5)
+scale = Vector2(0.84375, 0.2109375)
+sprite_frames = SubResource("SpriteFrames_136fi")
+
+[node name="spawnpoint" type="Marker2D" parent="." unique_id=1297420429]
+position = Vector2(110, -14)
