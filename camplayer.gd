@@ -28,7 +28,6 @@ func _on_player_disconnected(pid) -> void:
 		queue_free()
 	pass
 
-
 func _initialize() -> void:
 	pass
 

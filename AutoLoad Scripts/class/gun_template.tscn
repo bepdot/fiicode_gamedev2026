@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://sasb7uqkgwr1"]
 
-[ext_resource type="Texture2D" uid="uid://duvc1h3v4qe0f" path="res://assets/icon.svg" id="1_67koe"]
+[ext_resource type="Texture2D" uid="uid://c5wooc32vwlyj" path="res://sprites/characters/shotgun.png" id="1_67koe"]
 
 [sub_resource type="GDScript" id="GDScript_mmje8"]
 script/source = "extends weapon
@@ -17,26 +17,22 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_67koe"]
+properties/0/path = NodePath(".:syncRot")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
 [node name="gunTemplate" type="Node2D" unique_id=1602873314]
 script = SubResource("GDScript_mmje8")
-type = null
-sprite = null
-ammoType = null
-currentAmmoInMag = null
-ammoAmountUsed = null
-maxAmmoInMag = null
-ammoLeft = null
-projectileAmount = null
-projectileSpread = null
-fireDelay = null
-reloadTime = null
-automatic = null
-playerBound = null
 
 [node name="texture" type="AnimatedSprite2D" parent="." unique_id=598404557]
-position = Vector2(54, -13.5)
-scale = Vector2(0.84375, 0.2109375)
+position = Vector2(76, -21)
+scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_136fi")
 
 [node name="spawnpoint" type="Marker2D" parent="." unique_id=1297420429]
-position = Vector2(110, -14)
+position = Vector2(145, -30)
+scale = Vector2(6, 6)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1374844796]
+replication_config = SubResource("SceneReplicationConfig_67koe")

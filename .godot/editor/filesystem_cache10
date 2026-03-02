@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1772465216
+::res://::1772470170
 camplayer.gd::GDScript::6406726864217005775::1772386158::0::1::::<>Camera2D<><>0<>0<><>::
 camplayer.tscn::PackedScene::2970024902318905585::1772386186::0::1::::<><><>0<>0<><>::uid://cxjp4c4nnsloh::::res://camplayer.gd<>uid://cyj8vpwme0tbg::::res://assets/Character.svg<>uid://bn3uyy06qd06b::::res://assets/PixelWhite.png
 game.gd::GDScript::8960059320331683218::1772306126::0::1::::<>Node<><>0<>0<><>::
@@ -8,7 +8,7 @@ global.gd::GDScript::8712487960465572433::1772463946::0::1::::<>Node<><>0<>0<><>
 level.gd::GDScript::8960059320331683218::1772381669::0::1::::<>Node<><>0<>0<><>::
 level.tscn::PackedScene::7321056424465212838::1772454034::0::1::::<><><>0<>0<><>::uid://d0wk4rk6f43ec::::res://level.gd<>uid://bbb6uhyhkrkuo::::res://player.tscn<>uid://bikx41502wigf::::res://camplayer.tscn<>uid://bhtmnvapyfve2::::res://sprites/world/default.tres<>uid://ctto88w3psdkd::::res://AutoLoad Scripts/class/objecttemplate.tscn
 player.gd::GDScript::5890564635207563065::1772463946::0::1::::<>CharacterBody2D<><>0<>0<><>::
-player.tscn::PackedScene::2460592252809900262::1772463946::0::1::::<><><>0<>0<><>::uid://cp6o0egq4smi0::::res://player.gd<>uid://cyj8vpwme0tbg::::res://assets/Character.svg<>uid://hggollplrygv::::res://sprites/ui/hpbar.png
+player.tscn::PackedScene::2460592252809900262::1772470136::0::1::::<><><>0<>0<><>::uid://cp6o0egq4smi0::::res://player.gd<>uid://cyj8vpwme0tbg::::res://assets/Character.svg<>uid://hggollplrygv::::res://sprites/ui/hpbar.png<>uid://sasb7uqkgwr1::::res://AutoLoad Scripts/class/gun_template.tscn
 README.md::TextFile::-1::1772303646::0::1::::<><><>0<>0<><>::
 root.gd::GDScript::7059745436972906893::1772306665::0::1::::<>Node<><>0<>0<><>::
 root.tscn::PackedScene::7596689744909538954::1772385138::0::1::::<><><>0<>0<><>::uid://c7t18ge8j1f1f::::res://root.gd<>uid://dckmy2r1vu3re::::res://level.tscn<>uid://33p8pjnjvodd::::res://assets/theme.tres<>uid://f423j2srnckj::::res://assets/Bg.png
@@ -30,19 +30,20 @@ mc_bells.mp3::AudioStreamMP3::9054697585807786168::1771276019::1772312403::1::::
 AudioBank.tscn::PackedScene::5856727099455066931::1772366241::0::1::::<><><>0<>0<><>::
 GameManager.gd::GDScript::5656450262492018124::1772302010::0::1::::<>Node<><>0<>0<><>::
 NetworkManager.gd::GDScript::7080481530796447946::1772303036::0::1::::<>Node<><>0<>0<><>::
-::res://AutoLoad Scripts/class/::1772470004
+::res://AutoLoad Scripts/class/::1772470136
+bullet_template.tscn::PackedScene::2479559917101710077::1772470004::0::1::::<><><>0<>0<><>::uid://whmxekr8eahn::::res://AutoLoad Scripts/class/class_bullet.gd<>uid://bn3uyy06qd06b::::res://assets/PixelWhite.png
+class_bullet.gd::GDScript::1559375107846244555::1772470004::0::1::::bullet<>Node2D<><>0<>0<><>::
 class_hackable.gd::GDScript::6458143083813728377::1772372125::0::1::::hackableObject<>Area2D<><>0<>0<><>::
 class_hacktype.gd::GDScript::3798034709179009722::1772385774::0::1::::hackData<>Node2D<><>0<>0<><>::
+class_weapon.gd::GDScript::8885580493600778642::1772470136::0::1::::weapon<>Node2D<><>0<>0<><>::
+gun_template.tscn::PackedScene::1264495589532169092::1772470136::0::1::::<><><>0<>0<><>::uid://duvc1h3v4qe0f::::res://assets/icon.svg
 objecttemplate.gd::GDScript::8501973023162386610::1772463593::0::1::::objectTemplate<>hackableObject<><>0<>0<><>::
 objecttemplate.tscn::PackedScene::6146563311482745315::1772465711::0::1::::<><><>0<>0<><>::uid://dteoivdbsade5::::res://AutoLoad Scripts/class/objecttemplate.gd<>uid://duvc1h3v4qe0f::::res://assets/icon.svg<>uid://bud2cuy8vvjs1::::res://AutoLoad Scripts/class/class_hacktype.gd
-class_weapon.gd::GDScript::8885580493600778642::1772465940::0::1::::weapon<>Node2D<><>0<>0<><>::
-gun_template.tscn::PackedScene::1264495589532169092::1772465940::0::1::::<><><>0<>0<><>::uid://duvc1h3v4qe0f::::res://assets/icon.svg
-class_bullet.gd::GDScript::1559375107846244555::1772470004::0::1::::bullet<>Node2D<><>0<>0<><>::
-bullet_template.tscn::PackedScene::2479559917101710077::1772470004::0::1::::<><><>0<>0<><>::uid://whmxekr8eahn::::res://AutoLoad Scripts/class/class_bullet.gd<>uid://bn3uyy06qd06b::::res://assets/PixelWhite.png
 ::res://levels/::1772305217
 ::res://sprites/::1772360132
-::res://sprites/characters/::1772470092
+::res://sprites/characters/::1772470463
 lad.png::CompressedTexture2D::8009997627462937405::1772470092::1772470101::1::::<><><>0<>0<>25cf6115194fc1c3df8d56c4a4de0492<>res://.godot/imported/lad.png-6534081abaf1acfe8b912839afcc8463.ctex::
+shotgun.png::CompressedTexture2D::6924798175686809413::1772470463::1772470465::1::::<><><>0<>0<>3a91e22fc1888c1c000b39cc710349f3<>res://.godot/imported/shotgun.png-48d28b18dd7f547902345fd3e1a2acd0.ctex::
 ::res://sprites/enemies/::1772312272
 ::res://sprites/ui/::1772313715
 hpbar.png::CompressedTexture2D::504098070508480025::1772313706::1772313715::1::::<><><>0<>0<>62dab5dbc1d1e21b7cdea3252f658b16<>res://.godot/imported/hpbar.png-44f129c6d765f05af36f41e4c2dac999.ctex::

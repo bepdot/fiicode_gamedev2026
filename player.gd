@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-var syncPos := Vector2(0.0, 0.0)
+@export var syncPos := Vector2(0.0, 0.0)
+@export var syncScaleX := 5.0
 var ownid
 
 
@@ -10,7 +11,9 @@ func _enter_tree():
 
 @rpc("call_local")
 func _initialize() -> void:
-	if is_in_group("shooter"): $AnimatedSprite2D.modulate = Color(0, 0, 0)
+	if is_in_group("shooter"):
+		if int(str(name)) != get_multiplayer_authority():
+			set_physics_process(false)
 	if is_in_group("assistant"): 
 		if int(str(name)) == get_multiplayer_authority():
 			$ColorRect.show()
@@ -37,7 +40,13 @@ func _physics_process(_delta: float) -> void:
 	if not is_multiplayer_authority():
 		# Making it 30fps (save bandwidth) and lerping with local fps to hide the stutter
 		position = lerp(position, syncPos, 0.5)
+		$char.scale.x = syncScaleX
+		
 		return
+	
+	if get_global_mouse_position().x < $char.global_position.x: $char.scale.x = -5
+	else: $char.scale.x = 5
+	syncScaleX = $char.scale.x
 	
 	$ui/Label.text = str(is_multiplayer_authority())
 	velocity = Vector2.ZERO # The player's movement vector.
@@ -60,9 +69,10 @@ func _physics_process(_delta: float) -> void:
 	
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * current_speed
-		$AnimatedSprite2D.play()
+		#$AnimatedSprite2D.play()
 	else:
-		$AnimatedSprite2D.stop()
+		#$AnimatedSprite2D.stop()
+		pass
 	
 	syncPos = global_position
 	move_and_slide()

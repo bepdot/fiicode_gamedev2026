@@ -15,6 +15,7 @@ class_name weapon
 @export var automatic: bool = false
 @export var playerBound: bool = true
 var canShoot: bool = true
+@export var syncRot: float = 0.0
 
 var is_reloading: bool = false
 @onready var muzzle = $MuzzleName
@@ -24,15 +25,23 @@ func _spawn(currentAmmo, remainingAmmo) -> void: # should be called whenever a w
 	currentAmmoInMag = currentAmmo # gets these from player object
 	ammoLeft = remainingAmmo
 	print("Arma " + type + " initializata: " + str(currentAmmoInMag) + "/" + str(ammoLeft))
+	
+	#await get_tree().create_timer(get_physics_process_delta_time(), false, true).timeout
+	#_rotate_to_mouse()
 
+@rpc("call_local")
 func _physics_process(delta: float) -> void:
-	print(" I AM HERE")
+	#print(" I AM HERE")
+	if not is_multiplayer_authority():
+		global_rotation = lerp_angle(global_rotation, syncRot, 0.5)
+		return
+	syncRot = global_rotation
 	look_at(get_global_mouse_position())
-	print(global_rotation)
-	if global_rotation_degrees > 90 or global_rotation_degrees < -90:
-		scale.y = -1
-	else:
-		scale.y = 1
+	#print(global_rotation)
+	#if global_rotation_degrees > 90 or global_rotation_degrees < -90:
+		#scale.y = -1
+	#else:
+		#scale.y = 1
 	
 	if Input.is_action_just_pressed("reload") and not is_reloading:
 		if currentAmmoInMag < maxAmmoInMag and ammoLeft > 0:
@@ -57,7 +66,7 @@ func _shoot() -> int:
 	currentAmmoInMag -= 1
 	
 	if playerBound:
-		Global.arme[type]["ammo"] = currentAmmoInMag
+		Global.arme[type]['ammo'] = currentAmmoInMag
 	
 	#for i in range(projectileAmount):
 		# creeaza bullet, unghi, adaugare in scena root

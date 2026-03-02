@@ -44,7 +44,6 @@ func _ready() -> void:
 size = Vector2(200, 100)
 
 [node name="camplayer" type="Camera2D" unique_id=1407472303 groups=["assistant"]]
-visible = false
 script = ExtResource("1_qy6s5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=786134881]
