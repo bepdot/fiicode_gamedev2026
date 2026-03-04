@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cxjp4c4nnsloh" path="res://camplayer.gd" id="1_qy6s5"]
 [ext_resource type="Texture2D" uid="uid://cyj8vpwme0tbg" path="res://assets/Character.svg" id="2_66rlv"]
 [ext_resource type="Texture2D" uid="uid://bn3uyy06qd06b" path="res://assets/PixelWhite.png" id="3_ev0uo"]
+[ext_resource type="Texture2D" uid="uid://bwvws3x6s3fb3" path="res://sprites/ui/arrow.png" id="4_hhv52"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ev0uo"]
 animations = [{
@@ -44,6 +45,7 @@ func _ready() -> void:
 size = Vector2(200, 100)
 
 [node name="camplayer" type="Camera2D" unique_id=1407472303 groups=["assistant", "camera"]]
+visible = false
 script = ExtResource("1_qy6s5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=786134881]
@@ -69,7 +71,6 @@ replication_config = SubResource("SceneReplicationConfig_ru7w0")
 visibility_update_mode = 1
 
 [node name="ui" type="Node2D" parent="." unique_id=65160047]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="ui" unique_id=1933074449]
 offset_left = -1230.0
@@ -115,6 +116,15 @@ offset_bottom = 126.0
 theme_override_font_sizes/font_size = 40
 text = "fps:"
 horizontal_alignment = 1
+
+[node name="arrow" type="Node2D" parent="ui" unique_id=1792709913]
+position = Vector2(0, -380)
+
+[node name="Sprite2D2" type="Sprite2D" parent="ui/arrow" unique_id=681394970]
+visible = false
+modulate = Color(0.5019608, 0.5019608, 0.5019608, 1)
+scale = Vector2(4, 4)
+texture = ExtResource("4_hhv52")
 
 [node name="hover" type="Area2D" parent="ui" unique_id=1429736004]
 

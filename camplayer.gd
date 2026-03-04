@@ -96,17 +96,20 @@ func _check_for_hackable() -> hackableObject:
 
 func _input(event: InputEvent) -> void:
 	if canExecuteCommand:
-		if Input.is_action_just_pressed("cycle_right"): targettedObject_option += 1
-		if Input.is_action_just_pressed("cycle_left"): targettedObject_option -= 1
-		if targettedObject_option > targettedObject.hackArray.size()-1: targettedObject_option = 0
-		if targettedObject_option < 0: targettedObject_option = targettedObject.hackArray.size()-1
 		
 		if executionLayer == 1:
 			if Input.is_action_just_pressed("down_1") or Input.is_action_just_pressed("left_1") or Input.is_action_just_pressed("right_1") or Input.is_action_just_pressed("up_1"):
+				print(event.as_text())
 				currentCode.append(event.as_text())
 				_match_input_code()
 		
 		if targettedObject.canBeHacked:
+			if executionLayer == 0:
+				if Input.is_action_just_pressed("cycle_right"): targettedObject_option += 1
+				if Input.is_action_just_pressed("cycle_left"): targettedObject_option -= 1
+				if targettedObject_option > targettedObject.hackArray.size()-1: targettedObject_option = 0
+				if targettedObject_option < 0: targettedObject_option = targettedObject.hackArray.size()-1
+			
 			if Input.is_action_just_pressed("ui_accept"):
 				if targettedObject.hackArray[targettedObject_option].codeLength == 0: _match_input_code(true)
 				match executionLayer:
@@ -119,23 +122,56 @@ func _input(event: InputEvent) -> void:
 		else: print("cannot be hacked right now")
 
 func _randomize_input_code(length) -> void:
-	print(length)
 	code.clear()
+	var tw = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT).set_parallel()
+	tw.tween_property($ui/arrow, "position:y", -380, 1).from(-400)
+	tw.tween_property($ui/arrow, "modulate:a", 1, 1).from(0)
+	
+	for i in $ui/arrow.get_children():
+		if i.get_index() > 0: i.queue_free()
+	var size = (length-1)*60
+	var start = -size / 2
 	for i in length:
 		var k = randi_range(0, 3)
 		code.append(keyArr[k])
+		var arw = $ui/arrow/Sprite2D2.duplicate()
+		$ui/arrow.add_child(arw)
+		arw.show()
+		arw.position.x = start
+		match keyArr[k]:
+			"Down": arw.rotation = PI
+			"Left": arw.rotation = -PI/2
+			"Right": arw.rotation = PI/2
+		start += 60
 	print(code)
 
 func _match_input_code(skip: bool = false) -> void:
 	if !skip:
-		for i in currentCode.size()-1:
+		var tw = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT).set_parallel()
+		print(currentCode.size())
+		
+		for i in currentCode.size():
 			if code[i] != currentCode[i]:
+				print("diff", code[i], " ", currentCode[i])
 				currentCode.clear()
-				print("failed, reset")
+				tw.tween_property($ui/arrow, "position:y", -380, 1).from(-360)
+				for k in $ui/arrow.get_children(): if k.get_index() > 0: k.modulate = Color(0.5, 0.5, 0.5)
 				return
+		
+		$ui/arrow.get_child(currentCode.size()).modulate = Color(1, 1, 1)
+		tw.tween_property($ui/arrow.get_child(currentCode.size()), "position:y", 0, 1).from(20)
+		
 		if currentCode.size() != code.size(): return
-	print("success!")
+	
+	var tw = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT).set_parallel()
+	tw.tween_property($ui/arrow, "position:y", -400, 0.5).from(-380)
+	tw.tween_property($ui/arrow, "modulate:a", 0, 0.5)
+	
 	await get_tree().create_timer(0.5, false, true).timeout
+	
+	for i in $ui/arrow.get_children():
+		if i.get_index() > 0: i.queue_free()
+	
 	targettedObject.hackArray[targettedObject_option].call(targettedObject.hackArray[targettedObject_option].callable)
 
 @rpc("call_local")
